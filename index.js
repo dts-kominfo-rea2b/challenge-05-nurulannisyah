@@ -6,8 +6,14 @@ const names = ["Halo", "Angel", "Nyoman", "Ketut", "Aisyah"];
 // "1. Nama"
 // "2. Nama"
 // ...
-const sorter = (list, callback) =>
-  callback(list).map((nama, index) => `${index + 1}. ${nama}`);
+const sorter = (nama, operator) => {
+  const operatorResult = operator(nama);
+  const hasil = [];
+  for (let a = 0; a < operatorResult.length; a++) {
+    hasil.push(`${a + 1}. ${operatorResult[a]}`);
+  }
+  return hasil;
+};
 
 // TODO: Fungsi untuk mengurutkan array of string secara ascending
 // mengembalikan array yang sudah diurutkan
